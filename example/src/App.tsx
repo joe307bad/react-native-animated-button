@@ -1,26 +1,46 @@
 import * as React from 'react';
 
 import { StyleSheet, View, Text } from 'react-native';
-import AnimatedButton from 'react-native-animated-button';
+import AnimatedButton, {ButtonNext} from 'react-native-animated-button';
 
 export default function App() {
   const [loading, setLoading] = React.useState<boolean | undefined>();
+  const [toggle, setToggle] = React.useState<boolean | undefined>();
   return (
     <View style={styles.container}>
+      <ButtonNext toggle={toggle} />
       <AnimatedButton
         stretch={false}
-        loading={loading}
-        style={{ padding: 10 }}
-        backgroundColor={'#FA824C'}
-        backgroundDarker={'#9F3504'}
+        loading={false}
+        style={{ marginTop: 12 }}
+        backgroundColor={'#3C91E6'}
+        backgroundDarker={'#155DA5'}
         borderColor={'green'}
         springRelease={false}
         disabled={false}
-        activityColor={"black"}
-        onNativePress={() => {}}
+        activityColor={'white'}
+        onNativePress={() => {
+          setToggle((prev) => !prev);
+        }}
       >
-        <Text style={{ padding: 10 }}>Should expand with loading icon</Text>
+        <Text style={{ padding: 10 }}>Toggle animation</Text>
       </AnimatedButton>
+    <AnimatedButton
+      stretch={false}
+      style={{ marginTop: 12 }}
+      backgroundColor={'#FA824C'}
+      backgroundDarker={'#9F3504'}
+      borderColor={'green'}
+      springRelease={false}
+      disabled={false}
+      loading={loading}
+      activityColor={'white'}
+      onNativePress={() => {
+        setLoading((prev) => !prev);
+      }}
+    >
+      <Text style={{ padding: 10 }}>Should expand with loading icon</Text>
+    </AnimatedButton>
       <AnimatedButton
         stretch={false}
         loading={false}
