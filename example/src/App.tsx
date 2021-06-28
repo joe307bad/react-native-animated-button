@@ -8,7 +8,7 @@ export default function App() {
   const [toggle, setToggle] = React.useState<boolean | undefined>();
   return (
     <View style={styles.container}>
-      <ButtonNext toggle={toggle} />
+      <ButtonNext />
       <AnimatedButton
         stretch={false}
         loading={false}
